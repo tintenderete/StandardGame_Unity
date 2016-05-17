@@ -22,7 +22,7 @@ public class ListPieceManager :ScriptableObject
 		Piece piece;
 		int id;
 		int color;
-		PieceManager pieceManager;
+		PieceManager newPieceManager;
 
 		for (int h = 0; h < board.GetSize ().horizontal; h++) 
 		{
@@ -32,33 +32,59 @@ public class ListPieceManager :ScriptableObject
 				id = piece.GetId ();
 				color = piece.GetColor ();
 
+				if(color == (int)Piece.colors.NoPiece){continue;}
+
 				if (color == (int)Piece.colors.White) 
 				{
-					pieceManager = new PieceManager (goFactory.MakeActor(Factory_goStandard.names.WhitePiece, piece, game ));
-					piecesList [id] = pieceManager;
+					newPieceManager = new PieceManager (goFactory.MakeActor(Factory_goStandard.names.WhitePiece, piece, game ));
+
 				} 
 				else 
 				{
-					pieceManager = new PieceManager (goFactory.MakeActor(Factory_goStandard.names.BlackPiece, piece, game));
-					piecesList [id] = pieceManager;
+					newPieceManager = new PieceManager (goFactory.MakeActor(Factory_goStandard.names.BlackPiece, piece, game));
+
 				}
 
-
+				newPieceManager.transform.position = new Vector3 (
+					v,
+					newPieceManager.transform.position.y, 
+					h);
+				Debug.Log (id);
+				newPieceManager.id = id;
+				Debug.Log (newPieceManager.id);
+				piecesList.Add (newPieceManager);
 			}
 		}
 	}
 
-	public void MovePiece(int idPiece ,Vector2 destiny)
+	public void MovePiece(int idPiece , Position newPosition)
 	{
-		piecesList [idPiece].transform.position = new Vector3 (
-			destiny.x,
-			piecesList [idPiece].transform.position.y , 
-			destiny.y);
+		Debug.Log (idPiece);
+		foreach (PieceManager pieceManager in piecesList) 
+		{
+
+			if (pieceManager.id == idPiece) 
+			{
+				
+				pieceManager.go.transform.position.Set(
+					newPosition.vertical,
+					pieceManager.transform.position.y , 
+					newPosition.horizontal);
+			}
+		}
+
+
 	}
 
-	public void DestroyPiece(int id)
+	public void DestroyPiece(int idPiece)
 	{
-		Destroy (piecesList [id].go);
+		foreach (PieceManager pieceManager in piecesList) 
+		{
+			if (pieceManager.id == idPiece) 
+			{
+				Destroy (pieceManager.go);
+			}
+		}
 	}
 
 }

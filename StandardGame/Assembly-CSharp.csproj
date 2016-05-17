@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Move_go.cs" />
      <Compile Include="Assets\Scripts\PieceManager.cs" />
      <Compile Include="Assets\Scripts\Testing.cs" />
+     <Compile Include="Assets\Scripts\VictoryCondition.cs" />
      <Compile Include="Assets\Scripts\go_Actor.cs" />
      <Compile Include="Assets\Scripts\go_Cell.cs" />
      <Compile Include="Assets\Scripts\go_GameManager.cs" />

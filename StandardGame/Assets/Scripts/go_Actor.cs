@@ -2,17 +2,20 @@
 using System.Collections;
 using BoardGameApi;
 
+
 public class go_Actor : MonoBehaviour 
 {
-	public  Actor actor;
+	public Actor actor;
 	public Game game;
+
 
 	void OnMouseDown()
 	{
 		if (game == null || game.GetCurrentPlayer() == null)
 			return;
 		
-		this.game.GetCurrentPlayer ().AddInput (this.actor);
+		
+		this.game.GetCurrentPlayer ().AddInput (actor);
 	}
 
 	public void SetSettings(Actor actor, Game game)

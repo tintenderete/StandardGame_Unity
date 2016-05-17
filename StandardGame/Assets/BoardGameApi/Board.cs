@@ -58,7 +58,7 @@ namespace BoardGameApi
                 }
             }
            
-            return new Cell();
+			return new Cell();
         }
 
         public Piece GetPiece(int boardPosH, int boardPosV)

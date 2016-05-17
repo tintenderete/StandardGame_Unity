@@ -22,7 +22,7 @@ public class Factory_goStandard : ScriptableObject
 
 			newGameObject = Instantiate (resource) as GameObject;
 
-			newGameObject.transform.GetChild (0).gameObject.AddComponent<go_Cell>().SetSettings(actor, game);
+			newGameObject.transform.GetChild (0).gameObject.AddComponent<go_Piece>().SetSettings(actor, game);
 
 			return newGameObject;
 		}
@@ -33,7 +33,7 @@ public class Factory_goStandard : ScriptableObject
 
 			newGameObject = Instantiate (resource) as GameObject;
 
-			newGameObject.transform.GetChild (0).gameObject.AddComponent<go_Cell>().SetSettings(actor, game);
+			newGameObject.transform.GetChild (0).gameObject.AddComponent<go_Piece>().SetSettings(actor, game);
 
 			return newGameObject;
 		}

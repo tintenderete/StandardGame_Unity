@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 namespace BoardGameApi
 {
-    class PlayerPlay_Standard: IStep
+	class PlayerPlay_Standard: MonoBehaviour, IStep
     {
         public Timer timer;
         public Action nextMovement;
@@ -27,21 +27,21 @@ namespace BoardGameApi
             this.turnManager = turnManager;
         }
 
-        public PlayerPlay_Standard()
+		public PlayerPlay_Standard(float timeLimit)
         {
-            this.timer = new Timer(30);
+            this.timer = new Timer(timeLimit);
             this.movementsAvailable = new List<Action>();
             this.currentPlayer = new Player();
             this.inputs = new List<Actor>();
             this.board = new Board();   
+
         }
 
         public void UpdateStep(TurnManager turnManager)
         {
-            if (turnManager == null)
-            {
-                this.turnManager = turnManager;
-            }
+            
+            this.turnManager = turnManager;
+            
 
             currentPlayer = turnManager.GetGame().GetCurrentPlayer();
             inputs = currentPlayer.GetInputs();
@@ -76,9 +76,13 @@ namespace BoardGameApi
         
         public Cell TakeActorAsCell(Actor actor)
         {
+			
             if (actor.IsActorPiece())
             {
-                return turnManager.GetGame().GetBoard().GetCell((Piece)actor);
+				
+				Piece piece = (Piece)actor;
+                return turnManager.GetGame().GetBoard().GetCell(piece);
+
             }
             else
             {
@@ -93,7 +97,7 @@ namespace BoardGameApi
             for (int i = inputs.Count - 1; i >= 0; i--)
             {
                 Cell cell = TakeActorAsCell(inputs[i]);
-
+				Debug.Log ("id:::::" + cell.GetPiece().GetId()); // correcta la id
                 if (destinyCell == null)
                 {
                     if (board.IsPlayerPiece(cell, currentPlayer))
@@ -101,6 +105,7 @@ namespace BoardGameApi
                         if (Action.IsCellInAnyOrigin(cell, movementsAvailable))
                         {
                             inputs =  Tools.ClearListBut(cell, inputs);
+							Debug.Log ("id222222:   " + cell.GetPiece().GetId()); // correcta la id
                             return null;
                         }
                         else
@@ -126,7 +131,10 @@ namespace BoardGameApi
                             {
                                 currentPlayer.SetZeroInputs();
                                 inputs = Tools.ClearList(inputs);
-                                return action = new Action(cell, new List<Cell>() { destinyCell });
+								Debug.Log ("id333333:   " + cell.GetPiece().GetId()); // correcta la id
+								action = new Action(cell, new List<Cell>() { destinyCell });
+								Debug.Log ("id444444:   " + action.originCell.GetPiece().GetId());// correcta la id
+								return action;
                             }
                             else
                             {

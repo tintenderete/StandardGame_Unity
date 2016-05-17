@@ -6,6 +6,7 @@ public class ActorManager
 {
 	public Transform transform;
 	public GameObject go;
+	public int id;
 
 	public ActorManager(GameObject go)
 	{

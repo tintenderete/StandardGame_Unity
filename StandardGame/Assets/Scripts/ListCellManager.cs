@@ -28,7 +28,7 @@ public class ListCellManager
 
 				boardTable [h, v].transform.position = new Vector3 (
 					(float)v,
-					(float)boardTable [h, v].transform.position.z,
+					(float)boardTable [h, v].transform.position.y,
 					(float)h);
 			}
 		}
