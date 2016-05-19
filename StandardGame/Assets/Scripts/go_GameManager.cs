@@ -26,11 +26,12 @@ public class go_GameManager : MonoBehaviour
 
 		listCellsManager.NewBoardTable (game);
 		listPieceManager.NewList (game);
-
+		/*
 		turnManager.AddStep (new PiecesToMove_Standard());
 		turnManager.AddStep (new PlayerPlay_Standard(5000));
-		turnManager.AddStep (new Move_go(listPieceManager));
+		turnManager.AddStep (new Move(listPieceManager));
 		turnManager.AddStep (new VictoryCondition());
+		*/
 		turnManager.SetGame (game);
 
 	}

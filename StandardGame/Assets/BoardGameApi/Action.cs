@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BoardGameApi
 {
-    class Action
+    public class Action
     {
 
         public static bool IsCellInAnyOrigin(Cell cell, List<Action> actionList)

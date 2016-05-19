@@ -3,13 +3,22 @@ using System.Collections;
 
 public class Testing : MonoBehaviour {
 
+	Curtain curtain ;
 	// Use this for initialization
 	void Start () 
 	{
-		Factory_goStandard factory = new Factory_goStandard ();
+		curtain = Curtain.CreateInstance<Curtain> ();
+		curtain.CreateNewCurtain ();
 
-		factory.MakeActor (Factory_goStandard.names.WhitePiece, null , null);
-	
+
+
+	}
+
+	void Update(){
+		
+		
+		Curtain.On ("HOOOOOLA");
+		curtain.CreateNewCurtain ();
 	}
 	
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BoardGameApi
 {
-    public class Board
+	public class Board
     {
         
         protected Position size = new Position(1,1);

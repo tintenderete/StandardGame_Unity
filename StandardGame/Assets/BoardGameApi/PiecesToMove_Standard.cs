@@ -6,53 +6,14 @@ using System.Text;
 
 namespace BoardGameApi
 {
-    class PiecesToMove_Standard: IStep
+    class PiecesToMove_Standard
     {
-        private Board board;
-        private Player currentPlayer;
-
-        public List<Action> movements;
-
-        public PiecesToMove_Standard(Board board, Player currentPlayer)
+       
+		public List<Action> BasicMovementsAvailable(Player currentPlayer, Board board)
         {
-            this.board = board;
-            movements = new List<Action>();
-            this.currentPlayer = currentPlayer;
-        }
+			List<Action> movements = new List<Action> ();
 
-        public PiecesToMove_Standard()
-        {
-            movements = new List<Action>();
-        }
-
-
-        public void UpdateStep(TurnManager turnManager)
-        {
-            board = turnManager.GetGame().GetBoard();
-            currentPlayer = turnManager.GetGame().GetCurrentPlayer();
-
-            BasicMovementsAvailable();
-
-            //int currentStep = turnManager.GetCurrentStep();
-            //List<IStep> steps = turnManager.GetSteps();
-
-            //PlayerPlay_Standard nextStep = (PlayerPlay_Standard)steps[currentStep + 1];
-
-            PlayerPlay_Standard nextStep = turnManager.FindTheNextStepLike<PlayerPlay_Standard>();
-
-            nextStep.movementsAvailable = movements;
-
-            turnManager.NextStep();
-            
-
-        }
-
-
-        public void BasicMovementsAvailable()
-        {
-            movements.Clear();
-
-            Cell[,] boardTable = this.board.GetBoard();
+            Cell[,] boardTable = board.GetBoard();
             Piece pieceAux;
 
             Action newMove;
@@ -67,13 +28,14 @@ namespace BoardGameApi
 
                     if (newMove.destinyCells.Count != 0)
                     {
-                        newMove.NoPlayerCellsInDestiny(currentPlayer);
                         movements.Add(newMove);
                     }
                    
                 }
 
             }
+
+			return movements;
         }
 
         

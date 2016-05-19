@@ -49,9 +49,9 @@ public class ListPieceManager :ScriptableObject
 					v,
 					newPieceManager.transform.position.y, 
 					h);
-				Debug.Log (id);
+				
 				newPieceManager.id = id;
-				Debug.Log (newPieceManager.id);
+
 				piecesList.Add (newPieceManager);
 			}
 		}
@@ -59,17 +59,19 @@ public class ListPieceManager :ScriptableObject
 
 	public void MovePiece(int idPiece , Position newPosition)
 	{
-		Debug.Log (idPiece);
+		
 		foreach (PieceManager pieceManager in piecesList) 
 		{
-
+			
 			if (pieceManager.id == idPiece) 
 			{
 				
-				pieceManager.go.transform.position.Set(
+				pieceManager.go.transform.position = new Vector3
+				(
 					newPosition.vertical,
 					pieceManager.transform.position.y , 
-					newPosition.horizontal);
+					newPosition.horizontal
+				);
 			}
 		}
 
