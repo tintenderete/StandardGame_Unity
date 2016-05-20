@@ -57,9 +57,7 @@
      <Compile Include="Assets\BoardGameApi\NoEnemyPieces.cs" />
      <Compile Include="Assets\BoardGameApi\NoPiece.cs" />
      <Compile Include="Assets\BoardGameApi\Piece.cs" />
-     <Compile Include="Assets\BoardGameApi\PiecesToMove_Standard.cs" />
      <Compile Include="Assets\BoardGameApi\Player.cs" />
-     <Compile Include="Assets\BoardGameApi\PlayerPlay_Standard.cs" />
      <Compile Include="Assets\BoardGameApi\Position.cs" />
      <Compile Include="Assets\BoardGameApi\StandardBoardGame.cs" />
      <Compile Include="Assets\BoardGameApi\StandardPieceFactory.cs" />
@@ -69,19 +67,24 @@
      <Compile Include="Assets\BoardGameApi\TurnManager.cs" />
      <Compile Include="Assets\Scripts\ActorManager.cs" />
      <Compile Include="Assets\Scripts\CellManager.cs" />
+     <Compile Include="Assets\Scripts\ComodinNextGame.cs" />
      <Compile Include="Assets\Scripts\Curtain.cs" />
      <Compile Include="Assets\Scripts\Factory_goStandard.cs" />
      <Compile Include="Assets\Scripts\ListCellManager.cs" />
      <Compile Include="Assets\Scripts\ListPieceManager.cs" />
      <Compile Include="Assets\Scripts\Move.cs" />
+     <Compile Include="Assets\Scripts\MovementsAvailable.cs" />
      <Compile Include="Assets\Scripts\PieceManager.cs" />
      <Compile Include="Assets\Scripts\Testing.cs" />
      <Compile Include="Assets\Scripts\VictoryCondition.cs" />
+     <Compile Include="Assets\Scripts\WaitingForPlayerPlay.cs" />
      <Compile Include="Assets\Scripts\go_Actor.cs" />
      <Compile Include="Assets\Scripts\go_Cell.cs" />
      <Compile Include="Assets\Scripts\go_Curtain.cs" />
      <Compile Include="Assets\Scripts\go_GameManager.cs" />
+     <Compile Include="Assets\Scripts\go_Menu.cs" />
      <Compile Include="Assets\Scripts\go_Piece.cs" />
+     <Compile Include="Assets\Scripts\go_Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

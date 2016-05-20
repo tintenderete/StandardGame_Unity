@@ -56,5 +56,15 @@ namespace BoardGameApi
             players[1] = new Player((int)Player.colors.Black);
         }
 
+		public string GetCurrentPlayerName()
+		{
+			if (currentPlayer == 0) {
+				return "White Player";
+			} else 
+			{
+				return "Black Player";
+			}
+		}
+
     }
 }

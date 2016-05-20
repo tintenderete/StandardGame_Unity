@@ -42,8 +42,11 @@ public class go_Curtain : MonoBehaviour
 			return;
 		}
 
-		text.text = "";
-		curtain.SetActive(false);
+		if (curtain.activeSelf) 
+		{
+			text.text = "";
+			curtain.SetActive (false);
+		}
 	}
 
 	public void CurtainOn(string textForCurtain)

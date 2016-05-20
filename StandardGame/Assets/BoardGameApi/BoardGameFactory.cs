@@ -8,7 +8,7 @@ namespace BoardGameApi
 {
     class BoardGameFactory
     {
-        public enum names { Standard, AllWhitePieces, AllBlackPieces, AllNoPieces };
+        public enum names { Standard, BigStandard, AllWhitePieces, AllBlackPieces, AllNoPieces };
 
         public BoardGameFactory()
         {
@@ -62,6 +62,29 @@ namespace BoardGameApi
 
                 return editor.GetBoard();
             }
+
+			if (boardName == (int)names.BigStandard) 
+			{
+				BoardTableEditor editor = new BoardTableEditor (8, 6, new StandardPieceFactory());
+
+				editor.SetPointerInLine (0);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.standard_White);
+				editor.SetPointerInLine (1);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.standard_White);
+
+				editor.SetPointerInLine (2);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.NoPiece);
+				editor.SetPointerInLine (3);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.NoPiece);
+
+				editor.SetPointerInLine (4);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.standard_Black);
+				editor.SetPointerInLine (5);
+				editor.PushPiece(8, (int)StandardPieceFactory.names.standard_Black);
+
+				return editor.GetBoard ();
+
+			}
 
             return new Board();
         }

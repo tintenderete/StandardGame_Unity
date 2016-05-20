@@ -10,6 +10,16 @@ public class Curtain : ScriptableObject
 
 	private static go_Curtain go_curtain;
 
+	static public bool IsActive()
+	{
+		if (go_curtain.gameObject.transform.transform.GetChild(0).gameObject.activeSelf) 
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	static public void On(float minTime, string textForCurtain)
 	{
 		go_curtain.CurtainOn (minTime, textForCurtain);

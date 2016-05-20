@@ -20,7 +20,7 @@ public class Move : IStep
 	public void UpdateStep(TurnManager turnManager)
 	{
 
-		//playerPlay = turnManager.FindOneStepLike<PlayerPlay_Standard> ().nextMovement;
+		playerPlay = turnManager.FindOneStepLike<WaitingForPlayerPlay> ().nextMovement;
 
 		if (playerPlay == null) 
 		{
@@ -29,6 +29,7 @@ public class Move : IStep
 		}
 
 		idPieceToMove = playerPlay.originCell.GetPiece ().GetId ();
+
 		nextBoardPosition = playerPlay.destinyCells [0].GetBoardPosition ();
 
 		go_pieces.DestroyPiece (playerPlay.destinyCells[0].GetPiece().GetId());

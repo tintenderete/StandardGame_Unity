@@ -13,11 +13,10 @@ public class VictoryCondition : IStep
 	{
 		if (NoEnemyPieces.Control (turnManager.GetGame ().GetBoard (), turnManager.GetGame ().GetCurrentPlayer ())) 
 		{
-			Debug.Log ("WINNER");
+			go_Menu.MenucAtive (turnManager.GetGame ().GetCurrentPlayerName ());
 		}
 		else 
 		{
-			Debug.Log ("TURN FINISED");
 			turnManager.GetGame ().NexPlayer ();
 			turnManager.NextStep ();
 		}
