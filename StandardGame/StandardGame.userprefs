@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BoardGameApi\PlayerPlay_Standard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BoardGameApi\Tools_PlayerPlay.cs">
     <Files>
-      <File FileName="Assets\BoardGameApi\PiecesToMove_Standard.cs" Line="23" Column="39" />
-      <File FileName="Assets\BoardGameApi\PlayerPlay_Standard.cs" Line="132" Column="63" />
+      <File FileName="Assets\BoardGameApi\Tools_PlayerPlay.cs" Line="9" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
